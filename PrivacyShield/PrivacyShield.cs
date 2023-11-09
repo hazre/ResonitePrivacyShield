@@ -107,7 +107,6 @@ namespace PrivacyShield
             SkyFrost.Base.DB_Endpoint? endpointOverwrite
         )
         {
-            UniLog.Warning("[PrivacyShield] request: " + uri);
             if (uri.Scheme == "resdb" || uri.Scheme == "local" || uri.Host.EndsWith(".resonite.com") || await AskForPermission(assetManager.Engine, uri, "PrivacyShield generic request"))
             {
                 if (typeof(T) == typeof(string))
