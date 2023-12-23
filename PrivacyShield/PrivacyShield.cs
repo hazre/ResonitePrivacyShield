@@ -14,7 +14,7 @@ namespace PrivacyShield
     [HarmonyPatch]
     class PrivacyShield : ResoniteMod
     {
-        public override string Name => "PrivacyShield";
+        public override string Name => "ResonitePrivacyShield";
         public override string Author => "hazre";
         public override string Version => "2.0.0";
         public override string Link => "https://github.com/hazre/ResonitePrivacyShield/";
@@ -49,7 +49,7 @@ namespace PrivacyShield
                 }
             }
 
-            Harmony harmony = new Harmony("net.hazre.PrivacyShield");
+            Harmony harmony = new Harmony("dev.hazre.ResonitePrivacyShield");
             harmony.PatchAll();
         }
 
