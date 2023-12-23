@@ -16,7 +16,7 @@ namespace PrivacyShield
     {
         public override string Name => "ResonitePrivacyShield";
         public override string Author => "hazre";
-        public override string Version => "2.0.0";
+        public override string Version => "2.0.1";
         public override string Link => "https://github.com/hazre/ResonitePrivacyShield/";
 
         [AutoRegisterConfigKey]
