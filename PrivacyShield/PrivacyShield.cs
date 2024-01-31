@@ -1,13 +1,8 @@
 using HarmonyLib;
 using ResoniteModLoader;
 using System;
-using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using FrooxEngine;
-using Elements.Core;
-using SkyFrost.Base;
 
 namespace PrivacyShield
 {
@@ -16,7 +11,7 @@ namespace PrivacyShield
     {
         public override string Name => "ResonitePrivacyShield";
         public override string Author => "hazre";
-        public override string Version => "2.0.1";
+        public override string Version => "2.0.2";
         public override string Link => "https://github.com/hazre/ResonitePrivacyShield/";
 
         [AutoRegisterConfigKey]
