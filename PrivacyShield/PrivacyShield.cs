@@ -11,7 +11,7 @@ namespace PrivacyShield
     {
         public override string Name => "ResonitePrivacyShield";
         public override string Author => "hazre";
-        public override string Version => "2.0.2";
+        public override string Version => "2.0.3";
         public override string Link => "https://github.com/hazre/ResonitePrivacyShield/";
 
         [AutoRegisterConfigKey]
@@ -102,7 +102,7 @@ namespace PrivacyShield
             SkyFrost.Base.DB_Endpoint? endpointOverwrite
         )
         {
-            if (uri.Scheme == "resdb" || uri.Scheme == "local" || uri.Host.EndsWith(".resonite.com") || await AskForPermission(assetManager.Engine, uri, "PrivacyShield generic request"))
+            if (uri.Scheme == "resdb" || uri.Scheme == "local" || uri.Host.EndsWith(".resonite.com") || await AskForPermission(assetManager.Engine, uri, HostAccessScope.HTTP, "PrivacyShield Generic Request"))
             {
                 if (typeof(T) == typeof(string))
                 {
@@ -120,12 +120,10 @@ namespace PrivacyShield
             return default;
         }
 
-        private static async Task<bool> AskForPermission(FrooxEngine.Engine engine, Uri target, String accessReason)
+        private static async Task<bool> AskForPermission(FrooxEngine.Engine engine, Uri target, HostAccessScope accessType, String accessReason)
         {
             Debug("Asking permissions for", target);
-            FrooxEngine.HostAccessPermission perms = await
-                engine.Security.RequestAccessPermission(target.Host, target.Port,
-                accessReason);
+            FrooxEngine.HostAccessPermission perms = await engine.Security.RequestAccessPermission(target.Host, target.Port, accessType, accessReason);
             return perms == FrooxEngine.HostAccessPermission.Allowed;
         }
     }
